@@ -10,6 +10,8 @@ public class Main {
         double average = 0.00;
         int userInput = 0;
         int count = 0;
+        int min = 0;
+        int max = 0;
         boolean done = false;
             for (int i = 0; i < dataPoints.length; i++) {
                 dataPoints[i] = rnd.nextInt(100) + 1;
@@ -36,6 +38,23 @@ public class Main {
                 } if (!done) {
                     System.out.println("The value " + userInput + " was not found in the array.");
                 }
-                System.out.println("The value " + userInput + " was found " + count + " times in the array.");
+                    System.out.println("The value " + userInput + " was found " + count + " times in the array.");
+            for (int i = 1; i < dataPoints.length; i++) {
+                if (dataPoints[i] < min) {
+                    min = dataPoints[i];
+                }
+                if (dataPoints[i] > max) {
+                    max = dataPoints[i];
+                }
+            }
+                    System.out.println("Minimum value: " + min);
+                    System.out.println("Maximum value: " + max);
+                    System.out.println("Average of dataPoints is: " + getAverage(dataPoints));
+    } public static double getAverage(int values[]) {
+        double sum = 0;
+        for (double value : values) {
+            sum += value;
+        }
+        return sum / values.length;
     }
 }
